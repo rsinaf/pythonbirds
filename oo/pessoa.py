@@ -9,6 +9,14 @@ class Pessoa:
     def cumprimentar(self):
         return 'Hello'
 
+    @staticmethod
+    def metodo_estatico():
+        return 42
+
+    @classmethod
+    def nome_e_atributo_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
+
 if __name__ == '__main__':
     renzo = Pessoa(nome='Renzo')
     luciano = Pessoa(renzo, nome='Luciano')
@@ -37,6 +45,7 @@ if __name__ == '__main__':
     print(luciano.__dict__)
     #obviously the object address for the luciano "olhos" attribute changes
     print('Pessoa:', id(Pessoa.olhos), 'luciano:', id(luciano.olhos), 'renzo:', id(renzo.olhos))
-
-
-
+    #static methods
+    print(Pessoa.metodo_estatico(), luciano.metodo_estatico())
+    #class methods
+    print(Pessoa.nome_e_atributo_de_classe(), luciano.nome_e_atributo_de_classe())
